@@ -16,10 +16,12 @@ export class MyCleaningEventsPage {
 
   ionViewWillEnter(): void {
       const loggedUserData = this.loginService.getLoggedUser();
-      this.loadConversationsForUser(loggedUserData.getId());
+      if (loggedUserData) {
+          this.loadConversationsForUser(loggedUserData.getId());
+      }
   }
 
-    loadConversationsForUser(userId):void {
+    loadConversationsForUser(userId): void {
         this.restApiService.getCleaningEventsForUser(userId).subscribe(myCleaningEvents => {
             this.myCleaningEvents = myCleaningEvents;
         });

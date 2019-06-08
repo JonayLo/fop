@@ -15,4 +15,8 @@ export class LoggedUserModel {
     getId(): string {
         return this.id;
     }
+
+    getName(): string {
+        return this.name;
+    }
 }

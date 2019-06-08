@@ -37,10 +37,16 @@ export class RestApiService {
   }
 
   assignBeachCleanEvent(beachCleanEvent: BeachCleaningEventModel, userLogged: LoggedUserModel): any {
-    return this.http.post(this.apiUrl + 'test/', {beachCleanEvent, userLogged});
+    // TODO: Still not implemented in backend!
+    return this.http.post(this.apiUrl, {beachCleanEvent, userLogged});
   }
 
-  getCleaningEventsForUser(userId : string): Observable<Array<MyCleaningEventModel>> {
+  addFinishClean(finishClean: any): Observable<any> {
+    // TODO: Still not implemented in backend!
+    return this.http.post(this.apiUrl, {finishClean});
+  }
+
+  getCleaningEventsForUser(userId: string): Observable<Array<MyCleaningEventModel>> {
     return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'users/' + userId + '/cleaning-events').pipe(map(beachCleanEventList => {
       return MyCleaningEventModel.buildFromResponse(beachCleanEventList);
     }));
