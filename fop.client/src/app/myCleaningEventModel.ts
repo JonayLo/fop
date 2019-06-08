@@ -6,12 +6,7 @@ export class MyCleaningEventModel {
     private userId: string;
     private beach: BeachModel;
     private startingDate: string;
-    private durationInHours: number
-
-
-    public static buildFromResponse(myEventsList): MyCleaningEventModel[] {
-        return myEventsList.map(beachCleanEvent => new MyCleaningEventModel(beachCleanEvent.id, beachCleanEvent.userId, beachCleanEvent.beach, beachCleanEvent.startingDate, beachCleanEvent.durationInHours));
-    }
+    private durationInHours: number;
 
     constructor(id: string, userId: string, beach: BeachModel, startingDate: string, durationInHours: number) {
         this.id = id;
@@ -19,6 +14,10 @@ export class MyCleaningEventModel {
         this.beach = beach;
         this.startingDate = startingDate;
         this.durationInHours = durationInHours;
+    }
+
+    public static buildFromResponse(myEventsList): MyCleaningEventModel[] {
+        return myEventsList.map(beachCleanEvent => new MyCleaningEventModel(beachCleanEvent.id, beachCleanEvent.userId, beachCleanEvent.beach, beachCleanEvent.startingDate, beachCleanEvent.durationInHours));
     }
 
 }
