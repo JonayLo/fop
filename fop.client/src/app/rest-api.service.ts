@@ -20,4 +20,6 @@ export class RestApiService {
       return BeachModel.buildFromResponse(beachList);
     }));
   }
+
+
 }
