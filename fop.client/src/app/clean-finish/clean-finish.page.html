@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="my-cleaning-events" [text]="'Atrás'"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-text>Mi Limpieza</ion-text>
+
+    <ion-button (click)="onFinishClean()" [disabled]="!finishClean.photo">
+        Terminado!
+    </ion-button>
+
+    <ion-button (click)="onTakePicture()">
+        Toma una foto!
+    </ion-button>
+
+    <ion-img [src]="finishClean.photo" *ngIf="finishClean.photo"></ion-img>
+
+</ion-content>

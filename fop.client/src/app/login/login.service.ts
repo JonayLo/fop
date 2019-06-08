@@ -25,7 +25,6 @@ export class LoginService {
   login(email: string, password: string): Observable<LoggedUserModel> {
     return this.http.post<LoggedUserModel>(this.apiUrl + 'login', {email, password}).pipe(
         map(userLogged => {
-            userLogged = new LoggedUserModel(userLogged.id, userLogged.name );
             this.saveUserLoggedLocally(userLogged);
             this.loggedUser = userLogged;
             return userLogged;
@@ -34,7 +33,7 @@ export class LoginService {
   }
 
   getUserAlreadyLogged(): Observable<LoggedUserModel> {
-    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY).then(userLogged => LoggedUserModel.buildFromResponse(userLogged)));
+    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY).then(userLogged => userLogged));
   }
 
   private saveUserLoggedLocally(userLogged: LoggedUserModel): any {

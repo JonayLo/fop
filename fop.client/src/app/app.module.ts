@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RestApiService} from './rest-api.service';
 import {NativeStorage} from '@ionic-native/native-storage/ngx';
+import {Camera} from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {NativeStorage} from '@ionic-native/native-storage/ngx';
     SplashScreen,
     RestApiService,
     NativeStorage,
+      Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

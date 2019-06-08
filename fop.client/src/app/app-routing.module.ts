@@ -7,8 +7,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule', canActivate: [UserAlreadyLoggedGuard]},
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'selected-beach', loadChildren: './selected-beach/selected-beach.module#SelectedBeachPageModule' },
+  { path: 'clean-finish', loadChildren: './clean-finish/clean-finish.module#CleanFinishPageModule' },
   { path: 'my-cleaning-events', loadChildren: './my-cleaning-events/my-cleaning-events.module#MyCleaningEventsPageModule' }
-
 ];
 @NgModule({
   imports: [

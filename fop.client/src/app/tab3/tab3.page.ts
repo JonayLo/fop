@@ -16,7 +16,7 @@ export class Tab3Page implements  OnInit{
 
   ngOnInit(): void {
       this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
-          this.loadConversationsForUser(loggedUserData.getId());
+          this.loadConversationsForUser(loggedUserData.id);
       });
   }
 

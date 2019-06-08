@@ -10,12 +10,12 @@ provider:
     REGION: us-east-1
 functions:
   getNearestBeaches:
-    handler: src/functions/getNearestBeaches.handler
+    handler: src/functions/getUserNearestBeaches.handler
     description: "[${self:provider.stage}] Get a list of nearest beaches"
     events:
       - http:
           method: get
-          path: nearestBeaches
+          path: users/{userId}/nearestBeaches
           cors: true
   login:
     handler: src/functions/login.handler
