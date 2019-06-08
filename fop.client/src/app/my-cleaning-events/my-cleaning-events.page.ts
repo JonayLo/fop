@@ -17,7 +17,7 @@ export class MyCleaningEventsPage {
   ionViewWillEnter(): void {
       const loggedUserData = this.loginService.getLoggedUser();
       if (loggedUserData) {
-          this.loadConversationsForUser(loggedUserData.getId());
+          this.loadConversationsForUser(loggedUserData.id);
       }
   }
 
