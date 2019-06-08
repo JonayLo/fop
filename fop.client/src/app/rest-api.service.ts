@@ -17,8 +17,8 @@ export class RestApiService {
 
   constructor(private http: HttpClient) { }
 
-  getClosestBeaches(): Observable<Array<BeachModel>> {
-    return this.http.get<BeachModel[]>(this.apiUrl + 'nearestBeaches').pipe(map(beachList => {
+  getClosestBeaches(userId): Observable<Array<BeachModel>> {
+    return this.http.get<BeachModel[]>(this.apiUrl + 'users/' + userId + '/nearestBeaches').pipe(map(beachList => {
       return BeachModel.buildFromResponse(beachList);
     }));
   }

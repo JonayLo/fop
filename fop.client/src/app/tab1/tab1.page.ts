@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {RestApiService} from '../rest-api.service';
 import {BeachModel} from '../beachModel';
 import {OnInit} from '@angular/core';
+import {LoginService} from '../login/login.service';
 
 @Component({
   selector: 'app-tab1',
@@ -12,16 +13,17 @@ export class Tab1Page implements OnInit {
 
   closestBeaches: Array<BeachModel>;
 
-  constructor(private restApì: RestApiService) {
+  constructor(private restApì: RestApiService, private loginService: LoginService) {
 
   }
 
   ngOnInit(): void {
-    this.initializeClosestBeaches();
+    const loggedUserData = this.loginService.getLoggedUser();
+    this.initializeClosestBeaches(loggedUserData.getId());
   }
 
-  initializeClosestBeaches(): void {
-    this.restApì.getClosestBeaches().subscribe((closestBeaches: Array<BeachModel>) => {
+  initializeClosestBeaches(userId: string): void {
+    this.restApì.getClosestBeaches(userId).subscribe((closestBeaches: Array<BeachModel>) => {
       this.closestBeaches = closestBeaches;
     });
   }
