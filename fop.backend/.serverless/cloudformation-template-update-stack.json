@@ -17,6 +17,12 @@
         "LogGroupName": "/aws/lambda/fop-dev-login"
       }
     },
+    "GetConversationsByUserLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/fop-dev-getConversationsByUser"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -62,6 +68,9 @@
                     },
                     {
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-login:*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getConversationsByUser:*"
                     }
                   ]
                 },
@@ -76,6 +85,9 @@
                     },
                     {
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-login:*:*"
+                    },
+                    {
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getConversationsByUser:*:*"
                     }
                   ]
                 }
@@ -104,7 +116,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1559997166940-2019-06-08T12:32:46.940Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
         },
         "FunctionName": "fop-dev-getNearestBeaches",
         "Handler": "src/functions/getNearestBeaches.handler",
@@ -129,14 +141,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GetNearestBeachesLambdaVersion8RD4toU0ARcIpGsK6yUt7SIGwURr1iAcMkfON4lOg": {
+    "GetNearestBeachesLambdaVersionN7EXtzOoYuoQncPW30mg39gTZJnA2vBDRod24KWHc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetNearestBeachesLambdaFunction"
         },
-        "CodeSha256": "3351Hn3FjVo+4Gw1bQSIhaJ7oM5FbpPyPWhq1tYsS1c=",
+        "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
         "Description": "[dev] Get a list of nearest beaches"
       }
     },
@@ -147,7 +159,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1559997166940-2019-06-08T12:32:46.940Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
         },
         "FunctionName": "fop-dev-login",
         "Handler": "src/functions/login.handler",
@@ -172,15 +184,58 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "LoginLambdaVersionpgFMSGH4318acy84gB79YatkMtQT35oSpjLPIhKas": {
+    "LoginLambdaVersionfXXQVBjYm4a9kUYWv9PZyXaDnSK0YVANDbhWPnObA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
-        "CodeSha256": "3351Hn3FjVo+4Gw1bQSIhaJ7oM5FbpPyPWhq1tYsS1c=",
+        "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
         "Description": "[dev] Login endpoint that returns the current user"
+      }
+    },
+    "GetConversationsByUserLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
+        },
+        "FunctionName": "fop-dev-getConversationsByUser",
+        "Handler": "src/functions/getConversationsByUser.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs8.10",
+        "Timeout": 6,
+        "Description": "[dev] Get all user's conversations",
+        "Environment": {
+          "Variables": {
+            "REGION": "us-east-1"
+          }
+        }
+      },
+      "DependsOn": [
+        "GetConversationsByUserLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "GetConversationsByUserLambdaVersionAazLafGmE4XsMUVdSsa8SbjQeDSNj63R4RHyWnOs": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetConversationsByUserLambdaFunction"
+        },
+        "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
+        "Description": "[dev] Get all user's conversations"
       }
     },
     "ApiGatewayRestApi": {
@@ -219,6 +274,45 @@
           ]
         },
         "PathPart": "login",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceUsers": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "users",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceUsersUseridVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceUsers"
+        },
+        "PathPart": "{userId}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayResourceUsersUseridVarConversations": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceUsersUseridVar"
+        },
+        "PathPart": "conversations",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -318,6 +412,53 @@
         }
       }
     },
+    "ApiGatewayMethodUsersUseridVarConversationsOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Credentials": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                "method.response.header.Access-Control-Allow-Credentials": "'false'"
+              },
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceUsersUseridVarConversations"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayMethodNearestbeachesGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
@@ -404,7 +545,50 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1559997166953": {
+    "ApiGatewayMethodUsersUseridVarConversationsGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {},
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceUsersUseridVarConversations"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "GetConversationsByUserLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayDeployment1560004752261": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -415,8 +599,10 @@
       "DependsOn": [
         "ApiGatewayMethodNearestbeachesOptions",
         "ApiGatewayMethodLoginOptions",
+        "ApiGatewayMethodUsersUseridVarConversationsOptions",
         "ApiGatewayMethodNearestbeachesGet",
-        "ApiGatewayMethodLoginPost"
+        "ApiGatewayMethodLoginPost",
+        "ApiGatewayMethodUsersUseridVarConversationsGet"
       ]
     },
     "GetNearestBeachesLambdaPermissionApiGateway": {
@@ -512,6 +698,53 @@
           ]
         }
       }
+    },
+    "GetConversationsByUserLambdaPermissionApiGateway": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "GetConversationsByUserLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": {
+          "Fn::Join": [
+            "",
+            [
+              "apigateway.",
+              {
+                "Ref": "AWS::URLSuffix"
+              }
+            ]
+          ]
+        },
+        "SourceArn": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":",
+              {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "/*/*"
+            ]
+          ]
+        }
+      }
     }
   },
   "Outputs": {
@@ -523,13 +756,19 @@
     "GetNearestBeachesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetNearestBeachesLambdaVersion8RD4toU0ARcIpGsK6yUt7SIGwURr1iAcMkfON4lOg"
+        "Ref": "GetNearestBeachesLambdaVersionN7EXtzOoYuoQncPW30mg39gTZJnA2vBDRod24KWHc"
       }
     },
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoginLambdaVersionpgFMSGH4318acy84gB79YatkMtQT35oSpjLPIhKas"
+        "Ref": "LoginLambdaVersionfXXQVBjYm4a9kUYWv9PZyXaDnSK0YVANDbhWPnObA"
+      }
+    },
+    "GetConversationsByUserLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetConversationsByUserLambdaVersionAazLafGmE4XsMUVdSsa8SbjQeDSNj63R4RHyWnOs"
       }
     },
     "ServiceEndpoint": {

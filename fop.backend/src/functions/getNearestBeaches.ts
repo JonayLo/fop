@@ -1,5 +1,5 @@
 import { APIGatewayEvent, Context, Handler, Callback } from "aws-lambda"
-import {mockBeaches} from "../mocks/beaches";
+import {mockNearestBeaches} from "../mocks/nearestBeaches";
 import {buildResponse} from "../helpers/responseHelper";
 
 export const handler: Handler = (
@@ -10,7 +10,7 @@ export const handler: Handler = (
 
     context.callbackWaitsForEmptyEventLoop = false
 
-    const response = buildResponse(200, mockBeaches)
+    const response = buildResponse(200, mockNearestBeaches)
 
     callback(null, response)
 }

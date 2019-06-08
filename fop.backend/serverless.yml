@@ -25,5 +25,14 @@ functions:
           method: post
           path: login
           cors: true
+  getConversationsByUser:
+    handler: src/functions/getConversationsByUser.handler
+    description: "[${self:provider.stage}] Get all user's conversations"
+    events:
+      - http:
+          method: get
+          path: users/{userId}/conversations
+          cors: true
+
 plugins:
   - serverless-webpack
