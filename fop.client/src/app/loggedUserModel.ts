@@ -1,34 +1,18 @@
 export class LoggedUserModel {
 
-    private _id: string;
-    private _name: string;
-    private _peopleCleaningToday: number;
+    private id: string;
+    private name: string;
+    private peopleCleaningToday: number;
 
-    constructor() {
+    constructor(id: string, name: string, peopleCleaningToday: number) {
+        this.id = id;
+        this.name = name;
+        this.peopleCleaningToday = peopleCleaningToday;
+    }
+
+    public static buildFromResponse(userLogged): LoggedUserModel {
+        return new LoggedUserModel(userLogged.id, userLogged.name, userLogged.peopleCleaningToday);
     }
 
 
-    get id(): string {
-        return this._id;
-    }
-
-    set id(value: string) {
-        this._id = value;
-    }
-
-    get name(): string {
-        return this._name;
-    }
-
-    set name(value: string) {
-        this._name = value;
-    }
-
-    get peopleCleaningToday(): number {
-        return this._peopleCleaningToday;
-    }
-
-    set peopleCleaningToday(value: number) {
-        this._peopleCleaningToday = value;
-    }
 }

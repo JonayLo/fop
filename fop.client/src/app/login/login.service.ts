@@ -33,7 +33,7 @@ export class LoginService {
   }
 
   getUserAlreadyLogged(): Observable<LoggedUserModel> {
-    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY));
+    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY).then(userLogged => LoggedUserModel.buildFromResponse(userLogged)));
   }
 
   private saveUserLoggedLocally(userLogged: LoggedUserModel): any {
