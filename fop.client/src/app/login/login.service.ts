@@ -25,6 +25,7 @@ export class LoginService {
   login(email: string, password: string): Observable<LoggedUserModel> {
     return this.http.post<LoggedUserModel>(this.apiUrl + 'login', {email, password}).pipe(
         map(userLogged => {
+            userLogged = new LoggedUserModel(userLogged.id, userLogged.name );
             this.saveUserLoggedLocally(userLogged);
             this.loggedUser = userLogged;
             return userLogged;

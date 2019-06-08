@@ -1,3 +1,5 @@
+import {MyCleaningEventModel} from './myCleaningEventModel';
+
 export class BeachCleaningEventModel {
 
     private beachId: string;
@@ -12,7 +14,7 @@ export class BeachCleaningEventModel {
         this.numberOfUsers = numberOfUsers;
     }
 
-    public static buildFromResponse(beachCleaningEvent): BeachCleaningEventModel[] {
+    public static buildFromResponse(beachCleaningEvent): MyCleaningEventModel[] {
         return beachCleaningEvent.map(beachCleanEvent => new BeachCleaningEventModel(beachCleanEvent.beachId, beachCleanEvent.startingDate, beachCleanEvent.durationInHours, beachCleanEvent.numberOfUsers));
     }
 

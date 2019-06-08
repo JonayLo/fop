@@ -1,19 +1,24 @@
-export class BeachCleaningEventModel {
+import {BeachModel} from './beachModel';
 
-    private beachId: string;
-    private startingDate: Date;
-    private durationInHours: number;
-    private numberOfUsers: number;
+export class MyCleaningEventModel {
 
-    constructor(beachId: string, startingDate: Date, durationInHours: number, numberOfUsers: number) {
-        this.beachId = beachId;
-        this.startingDate = startingDate;
-        this.durationInHours = durationInHours;
-        this.numberOfUsers = numberOfUsers;
+    private id: string;
+    private userId: string;
+    private beach: BeachModel;
+    private startingDate: string;
+    private durationInHours: number
+
+
+    public static buildFromResponse(myEventsList): MyCleaningEventModel[] {
+        return myEventsList.map(beachCleanEvent => new MyCleaningEventModel(beachCleanEvent.id, beachCleanEvent.userId, beachCleanEvent.beach, beachCleanEvent.startingDate, beachCleanEvent.durationInHours));
     }
 
-    public static buildFromResponse(beachCleaningEvent): BeachCleaningEventModel[] {
-        return beachCleaningEvent.map(beachCleanEvent => new BeachCleaningEventModel(beachCleanEvent.beachId, beachCleanEvent.startingDate, beachCleanEvent.durationInHours, beachCleanEvent.numberOfUsers));
+    constructor(id: string, userId: string, beach: BeachModel, startingDate: string, durationInHours: number) {
+        this.id = id;
+        this.userId = userId;
+        this.beach = beach;
+        this.startingDate = startingDate;
+        this.durationInHours = durationInHours;
     }
 
 }

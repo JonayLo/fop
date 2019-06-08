@@ -5,8 +5,9 @@ import {UserAlreadyLoggedGuard} from './guards/user-already-logged.guard';
 const routes: Routes = [
   { path: '', loadChildren: './landing/landing.module#LandingPageModule', canActivate: [UserAlreadyLoggedGuard]},
   { path: 'login', loadChildren: './login/login.module#LoginPageModule', canActivate: [UserAlreadyLoggedGuard]},
-  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },  { path: 'selected-beach', loadChildren: './selected-beach/selected-beach.module#SelectedBeachPageModule' },
-
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'selected-beach', loadChildren: './selected-beach/selected-beach.module#SelectedBeachPageModule' },
+  { path: 'my-cleaning-events', loadChildren: './my-cleaning-events/my-cleaning-events.module#MyCleaningEventsPageModule' }
 
 ];
 @NgModule({

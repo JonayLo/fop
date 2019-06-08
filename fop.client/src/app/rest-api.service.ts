@@ -6,6 +6,7 @@ import {map} from 'rxjs/internal/operators';
 import {ConversationModel} from './conversationModel';
 import {BeachCleaningEventModel} from './beachCleaningEventModel';
 import {LoggedUserModel} from './loggedUserModel';
+import {MyCleaningEventModel} from './myCleaningEventModel';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,11 @@ export class RestApiService {
 
   assignBeachCleanEvent(beachCleanEvent: BeachCleaningEventModel, userLogged: LoggedUserModel): any {
     return this.http.post(this.apiUrl + 'test/', {beachCleanEvent, userLogged});
+  }
+
+  getCleaningEventsForUser(userId : string): Observable<Array<MyCleaningEventModel>> {
+    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'users/' + userId + '/cleaning-events').pipe(map(beachCleanEventList => {
+      return MyCleaningEventModel.buildFromResponse(beachCleanEventList);
+    }));
   }
 }

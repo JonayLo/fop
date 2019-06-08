@@ -6,7 +6,7 @@ export class ConversationModel {
     private id: string;
     private lastMessage: ConversationMessageModel;
     private ownerUserId: number;
-    user: UserModel;
+    private user: UserModel;
 
     public static  buildFromResponse(conversationList) {
         return conversationList.map(conversation => new ConversationModel(conversation.id, conversation.user, conversation.lastMessage, conversation.ownerUserId));
