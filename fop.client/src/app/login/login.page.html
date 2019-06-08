@@ -1,7 +1,7 @@
 <ion-content>
 
-  <ion-input (input)="email"></ion-input>
-  <ion-input (input)="password"></ion-input>
+  <ion-input [(ngModel)]="email"></ion-input>
+  <ion-input [(ngModel)]="password"></ion-input>
 
   <ion-button (click)="onLogin()">
     Login
