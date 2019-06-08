@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="row user-profile">
+    <div class="user-profile">
         <div class="image-container">
             <img class="user-image"
                  src="https://www.atlassian.com/dam/jcr:13a574c1-390b-4bfb-956b-6b6d114bf98c/max-rehkopf.png">
@@ -9,7 +9,7 @@
     <div class="close-beaches-container">
         <p>Estas playas cerca de ti necesitan limpieza</p>
         <ion-list class="beaches-list">
-            <ion-item *ngFor="let beach of closestBeaches">
+            <ion-item *ngFor="let beach of closestBeaches" [routerLink]="['/selected-beach', beach.id]">
                 <ion-avatar slot="start">
                     <img src="https://www.canarias7.es/binrepository/604x402/0c0/0d0/none/11314/UQMN/169937-1g_CSN169937_MG1884425.jpg">
                 </ion-avatar>
