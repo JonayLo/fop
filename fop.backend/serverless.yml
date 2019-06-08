@@ -1,0 +1,22 @@
+service:
+  name: fop
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  region: ${self:provider.environment.REGION}
+  environment:
+    REGION: us-east-1
+functions:
+  getNearestBeaches:
+    handler: src/functions/getNearestBeaches.handler
+    description: "[${self:provider.stage}] Get a list of nearest beaches"
+    events:
+      - http:
+          method: get
+          path: nearestBeaches
+          cors: true
+
+plugins:
+  - serverless-webpack
