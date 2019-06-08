@@ -15,8 +15,9 @@ export class MyCleaningEventsPage {
   constructor(private restApiService: RestApiService, private loginService: LoginService) { }
 
   ionViewWillEnter(): void {
-      const loggedUserData = this.loginService.getLoggedUser();
-      this.loadConversationsForUser(loggedUserData.getId());
+      this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
+          this.loadConversationsForUser(loggedUserData.getId());
+      });
   }
 
     loadConversationsForUser(userId):void {

@@ -18,8 +18,9 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit(): void {
-    const loggedUserData = this.loginService.getLoggedUser();
-    this.initializeClosestBeaches(loggedUserData.getId());
+    this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
+        this.initializeClosestBeaches(loggedUserData.getId());
+    });
   }
 
   initializeClosestBeaches(userId: string): void {
