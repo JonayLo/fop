@@ -40,6 +40,18 @@
               "LogGroupName": "/aws/lambda/fop-dev-getConversationsByUser"
             }
           },
+          "GetCleaningEventsByBeachLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/fop-dev-getCleaningEventsByBeach"
+            }
+          },
+          "GetCleaningEventsByUserLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/fop-dev-getCleaningEventsByUser"
+            }
+          },
           "IamRoleLambdaExecution": {
             "Type": "AWS::IAM::Role",
             "Properties": {
@@ -88,6 +100,12 @@
                           },
                           {
                             "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getConversationsByUser:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getCleaningEventsByBeach:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getCleaningEventsByUser:*"
                           }
                         ]
                       },
@@ -105,6 +123,12 @@
                           },
                           {
                             "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getConversationsByUser:*:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getCleaningEventsByBeach:*:*"
+                          },
+                          {
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/fop-dev-getCleaningEventsByUser:*:*"
                           }
                         ]
                       }
@@ -133,7 +157,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z/fop.zip"
               },
               "FunctionName": "fop-dev-getNearestBeaches",
               "Handler": "src/functions/getNearestBeaches.handler",
@@ -158,14 +182,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetNearestBeachesLambdaVersionN7EXtzOoYuoQncPW30mg39gTZJnA2vBDRod24KWHc": {
+          "GetNearestBeachesLambdaVersionY6ZiENnPa0yr5D1JN2CsUh8Fx0kD9ObckVAV9DhfawU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetNearestBeachesLambdaFunction"
               },
-              "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
+              "CodeSha256": "Rxd1Jf83sBI6rUQ60g7TjWj2FZ0ZpGQwSmDWlcCZk78=",
               "Description": "[dev] Get a list of nearest beaches"
             }
           },
@@ -176,7 +200,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z/fop.zip"
               },
               "FunctionName": "fop-dev-login",
               "Handler": "src/functions/login.handler",
@@ -201,14 +225,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "LoginLambdaVersionfXXQVBjYm4a9kUYWv9PZyXaDnSK0YVANDbhWPnObA": {
+          "LoginLambdaVersionjzMpYDvuGPvUhgORj2qYMq8auKi8OF2TIArHwpwUxw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "LoginLambdaFunction"
               },
-              "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
+              "CodeSha256": "Rxd1Jf83sBI6rUQ60g7TjWj2FZ0ZpGQwSmDWlcCZk78=",
               "Description": "[dev] Login endpoint that returns the current user"
             }
           },
@@ -219,7 +243,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z/fop.zip"
               },
               "FunctionName": "fop-dev-getConversationsByUser",
               "Handler": "src/functions/getConversationsByUser.handler",
@@ -244,15 +268,101 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetConversationsByUserLambdaVersionAazLafGmE4XsMUVdSsa8SbjQeDSNj63R4RHyWnOs": {
+          "GetConversationsByUserLambdaVersion2bgcPOjgyBSD4KcixQ8pq4DIAs30uoP7impvDZjPg2w": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetConversationsByUserLambdaFunction"
               },
-              "CodeSha256": "Xj2CePErAPFihgjiplHJbWj1vFvdXeEnGJ+7fjtxLFc=",
+              "CodeSha256": "Rxd1Jf83sBI6rUQ60g7TjWj2FZ0ZpGQwSmDWlcCZk78=",
               "Description": "[dev] Get all user's conversations"
+            }
+          },
+          "GetCleaningEventsByBeachLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z/fop.zip"
+              },
+              "FunctionName": "fop-dev-getCleaningEventsByBeach",
+              "Handler": "src/functions/getCleaningEventsByBeach.handler",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs8.10",
+              "Timeout": 6,
+              "Description": "[dev] Get all cleaning events for one beach",
+              "Environment": {
+                "Variables": {
+                  "REGION": "us-east-1"
+                }
+              }
+            },
+            "DependsOn": [
+              "GetCleaningEventsByBeachLogGroup",
+              "IamRoleLambdaExecution"
+            ]
+          },
+          "GetCleaningEventsByBeachLambdaVersion06C7te6YhWwiNQX39dtFR0WAo6Fv8aFB9KBMesC8": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetCleaningEventsByBeachLambdaFunction"
+              },
+              "CodeSha256": "Rxd1Jf83sBI6rUQ60g7TjWj2FZ0ZpGQwSmDWlcCZk78=",
+              "Description": "[dev] Get all cleaning events for one beach"
+            }
+          },
+          "GetCleaningEventsByUserLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z/fop.zip"
+              },
+              "FunctionName": "fop-dev-getCleaningEventsByUser",
+              "Handler": "src/functions/getCleaningEventsByUser.handler",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs8.10",
+              "Timeout": 6,
+              "Description": "[dev] Get all cleaning events for one user",
+              "Environment": {
+                "Variables": {
+                  "REGION": "us-east-1"
+                }
+              }
+            },
+            "DependsOn": [
+              "GetCleaningEventsByUserLogGroup",
+              "IamRoleLambdaExecution"
+            ]
+          },
+          "GetCleaningEventsByUserLambdaVersionelts81DfBcYrBO7VbNIIMxx0O8zfs5HYEydtY4bZsw": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetCleaningEventsByUserLambdaFunction"
+              },
+              "CodeSha256": "Rxd1Jf83sBI6rUQ60g7TjWj2FZ0ZpGQwSmDWlcCZk78=",
+              "Description": "[dev] Get all cleaning events for one user"
             }
           },
           "ApiGatewayRestApi": {
@@ -330,6 +440,57 @@
                 "Ref": "ApiGatewayResourceUsersUseridVar"
               },
               "PathPart": "conversations",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceUsersUseridVarCleaningDashevents": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceUsersUseridVar"
+              },
+              "PathPart": "cleaning-events",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceBeachs": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "beachs",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceBeachsBeachidVar": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceBeachs"
+              },
+              "PathPart": "{beachId}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceBeachsBeachidVarCleaningDashevents": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourceBeachsBeachidVar"
+              },
+              "PathPart": "cleaning-events",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -476,6 +637,100 @@
               }
             }
           },
+          "ApiGatewayMethodBeachsBeachidVarCleaningDasheventsOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true,
+                    "method.response.header.Access-Control-Allow-Credentials": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                      "method.response.header.Access-Control-Allow-Credentials": "'false'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceBeachsBeachidVarCleaningDashevents"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodUsersUseridVarCleaningDasheventsOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true,
+                    "method.response.header.Access-Control-Allow-Credentials": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                      "method.response.header.Access-Control-Allow-Credentials": "'false'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": ""
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceUsersUseridVarCleaningDashevents"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayMethodNearestbeachesGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -605,7 +860,93 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1560004752261": {
+          "ApiGatewayMethodBeachsBeachidVarCleaningDasheventsGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceBeachsBeachidVarCleaningDashevents"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetCleaningEventsByBeachLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodUsersUseridVarCleaningDasheventsGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceUsersUseridVarCleaningDashevents"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "GetCleaningEventsByUserLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayDeployment1560012698023": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -617,9 +958,13 @@
               "ApiGatewayMethodNearestbeachesOptions",
               "ApiGatewayMethodLoginOptions",
               "ApiGatewayMethodUsersUseridVarConversationsOptions",
+              "ApiGatewayMethodBeachsBeachidVarCleaningDasheventsOptions",
+              "ApiGatewayMethodUsersUseridVarCleaningDasheventsOptions",
               "ApiGatewayMethodNearestbeachesGet",
               "ApiGatewayMethodLoginPost",
-              "ApiGatewayMethodUsersUseridVarConversationsGet"
+              "ApiGatewayMethodUsersUseridVarConversationsGet",
+              "ApiGatewayMethodBeachsBeachidVarCleaningDasheventsGet",
+              "ApiGatewayMethodUsersUseridVarCleaningDasheventsGet"
             ]
           },
           "GetNearestBeachesLambdaPermissionApiGateway": {
@@ -762,6 +1107,100 @@
                 ]
               }
             }
+          },
+          "GetCleaningEventsByBeachLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetCleaningEventsByBeachLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "apigateway.",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    }
+                  ]
+                ]
+              },
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "GetCleaningEventsByUserLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "GetCleaningEventsByUserLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "apigateway.",
+                    {
+                      "Ref": "AWS::URLSuffix"
+                    }
+                  ]
+                ]
+              },
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
           }
         },
         "Outputs": {
@@ -773,19 +1212,31 @@
           "GetNearestBeachesLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetNearestBeachesLambdaVersionN7EXtzOoYuoQncPW30mg39gTZJnA2vBDRod24KWHc"
+              "Ref": "GetNearestBeachesLambdaVersionY6ZiENnPa0yr5D1JN2CsUh8Fx0kD9ObckVAV9DhfawU"
             }
           },
           "LoginLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "LoginLambdaVersionfXXQVBjYm4a9kUYWv9PZyXaDnSK0YVANDbhWPnObA"
+              "Ref": "LoginLambdaVersionjzMpYDvuGPvUhgORj2qYMq8auKi8OF2TIArHwpwUxw"
             }
           },
           "GetConversationsByUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetConversationsByUserLambdaVersionAazLafGmE4XsMUVdSsa8SbjQeDSNj63R4RHyWnOs"
+              "Ref": "GetConversationsByUserLambdaVersion2bgcPOjgyBSD4KcixQ8pq4DIAs30uoP7impvDZjPg2w"
+            }
+          },
+          "GetCleaningEventsByBeachLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetCleaningEventsByBeachLambdaVersion06C7te6YhWwiNQX39dtFR0WAo6Fv8aFB9KBMesC8"
+            }
+          },
+          "GetCleaningEventsByUserLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetCleaningEventsByUserLambdaVersionelts81DfBcYrBO7VbNIIMxx0O8zfs5HYEydtY4bZsw"
             }
           },
           "ServiceEndpoint": {
@@ -951,12 +1402,92 @@
         "timeout": 6,
         "runtime": "nodejs8.10",
         "vpc": {}
+      },
+      "getCleaningEventsByBeach": {
+        "handler": "src/functions/getCleaningEventsByBeach.handler",
+        "description": "[dev] Get all cleaning events for one beach",
+        "events": [
+          {
+            "http": {
+              "method": "get",
+              "path": "beachs/{beachId}/cleaning-events",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "fop-dev-getCleaningEventsByBeach",
+        "package": {
+          "artifact": ".serverless/fop.zip"
+        },
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs8.10",
+        "vpc": {}
+      },
+      "getCleaningEventsByUser": {
+        "handler": "src/functions/getCleaningEventsByUser.handler",
+        "description": "[dev] Get all cleaning events for one user",
+        "events": [
+          {
+            "http": {
+              "method": "get",
+              "path": "users/{userId}/cleaning-events",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "fop-dev-getCleaningEventsByUser",
+        "package": {
+          "artifact": ".serverless/fop.zip"
+        },
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs8.10",
+        "vpc": {}
       }
     },
     "layers": {}
   },
   "package": {
-    "artifactDirectoryName": "serverless/fop/dev/1560004752246-2019-06-08T14:39:12.246Z",
+    "artifactDirectoryName": "serverless/fop/dev/1560012698005-2019-06-08T16:51:38.005Z",
     "artifact": ""
   }
 }

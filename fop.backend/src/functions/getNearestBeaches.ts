@@ -1,5 +1,5 @@
 import { APIGatewayEvent, Context, Handler, Callback } from "aws-lambda"
-import {mockNearestBeaches} from "../mocks/nearestBeaches";
+import {mockNearestBeaches} from "../mocks/beaches";
 import {buildResponse} from "../helpers/responseHelper";
 
 export const handler: Handler = (
