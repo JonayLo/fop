@@ -14,7 +14,6 @@ export class LoginService {
   static USER_LOOGED_KEY = 'USER_LOGGED_KEY';
 
   private apiUrl = 'https://ok1idm43pk.execute-api.us-east-1.amazonaws.com/dev/';
-  private isLogged = false;
 
   constructor(private nativeStorage: NativeStorage, private http: HttpClient) {}
 
@@ -32,7 +31,7 @@ export class LoginService {
   }
 
   getUserAlreadyLogged(): Observable<LoggedUserModel> {
-    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY));
+    return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY).then(userLogged => LoggedUserModel.buildFromResponse(userLogged)));
   }
 
   private saveUserLoggedLocally(userLogged: LoggedUserModel): any {

@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BeachModel} from './beachModel';
 import {map} from 'rxjs/internal/operators';
+import {BeachCleaningEventModel} from './beachCleaningEventModel';
+import {LoggedUserModel} from './loggedUserModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +20,14 @@ export class RestApiService {
       return BeachModel.buildFromResponse(beachList);
     }));
   }
-  
+
+  getCleaningBeachEvents(beachId: string): Observable<Array<BeachCleaningEventModel>> {
+    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'cleaningEvents/' + beachId).pipe(map( beachCleanEventList => {
+      return BeachCleaningEventModel.buildFromResponse(beachCleanEventList);
+    }));
+  }
+
+  assignBeachCleanEvent(beachCleanEvent: BeachCleaningEventModel, userLogged: LoggedUserModel): any {
+    return this.http.post(this.apiUrl + 'test/', {beachCleanEvent, userLogged});
+  }
 }
