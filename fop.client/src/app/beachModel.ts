@@ -1,4 +1,3 @@
-
 export class BeachModel {
 
     private id: string;
@@ -15,9 +14,7 @@ export class BeachModel {
         this.peopleCleaningToday = peopleCleningToday;
     }
 
-
-
-
-
-
+    getId(): string {
+        return this.id;
+    }
 }

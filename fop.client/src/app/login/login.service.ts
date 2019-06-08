@@ -14,6 +14,7 @@ export class LoginService {
   static USER_LOOGED_KEY = 'USER_LOGGED_KEY';
 
   private apiUrl = 'https://ok1idm43pk.execute-api.us-east-1.amazonaws.com/dev/';
+  private loggedUser: LoggedUserModel;
 
   constructor(private nativeStorage: NativeStorage, private http: HttpClient) {}
 
@@ -25,6 +26,7 @@ export class LoginService {
     return this.http.post<LoggedUserModel>(this.apiUrl + 'login', {email, password}).pipe(
         map(userLogged => {
             this.saveUserLoggedLocally(userLogged);
+            this.loggedUser = userLogged;
             return userLogged;
         })
     ) as Observable<LoggedUserModel>;
@@ -36,5 +38,9 @@ export class LoginService {
 
   private saveUserLoggedLocally(userLogged: LoggedUserModel): any {
     return this.nativeStorage.setItem(LoginService.USER_LOOGED_KEY, userLogged);
+  }
+
+  getLoggedUser(): LoggedUserModel {
+    return this.loggedUser;
   }
 }

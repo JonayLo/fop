@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BeachModel} from './beachModel';
 import {map} from 'rxjs/internal/operators';
+import {ConversationModel} from './conversationModel';
 import {BeachCleaningEventModel} from './beachCleaningEventModel';
 import {LoggedUserModel} from './loggedUserModel';
 
@@ -21,8 +22,15 @@ export class RestApiService {
     }));
   }
 
+  getConversationsForUser(userId): Observable<Array<ConversationModel>> {
+      return this.http.get<BeachModel[]>(this.apiUrl + 'users/' + userId + '/conversations').pipe(map(conversationList => {
+          return ConversationModel.buildFromResponse(conversationList);
+      }));
+  }
+
+
   getCleaningBeachEvents(beachId: string): Observable<Array<BeachCleaningEventModel>> {
-    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'cleaningEvents/' + beachId).pipe(map( beachCleanEventList => {
+    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'beachs/' + beachId + '/cleaning-events').pipe(map( beachCleanEventList => {
       return BeachCleaningEventModel.buildFromResponse(beachCleanEventList);
     }));
   }
