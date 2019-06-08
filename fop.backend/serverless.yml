@@ -33,6 +33,22 @@ functions:
           method: get
           path: users/{userId}/conversations
           cors: true
+  getCleaningEventsByBeach:
+    handler: src/functions/getCleaningEventsByBeach.handler
+    description: "[${self:provider.stage}] Get all cleaning events for one beach"
+    events:
+      - http:
+          method: get
+          path: beachs/{beachId}/cleaning-events
+          cors: true
+  getCleaningEventsByUser:
+    handler: src/functions/getCleaningEventsByUser.handler
+    description: "[${self:provider.stage}] Get all cleaning events for one user"
+    events:
+      - http:
+          method: get
+          path: users/{userId}/cleaning-events
+          cors: true
 
 plugins:
   - serverless-webpack
