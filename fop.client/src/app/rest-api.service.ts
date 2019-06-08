@@ -22,7 +22,7 @@ export class RestApiService {
   }
 
   getCleaningBeachEvents(beachId: string): Observable<Array<BeachCleaningEventModel>> {
-    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'cleaningEvents/' + beachId).pipe(map( beachCleanEventList => {
+    return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'beachs/' + beachId + '/cleaning-events').pipe(map( beachCleanEventList => {
       return BeachCleaningEventModel.buildFromResponse(beachCleanEventList);
     }));
   }
