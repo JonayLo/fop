@@ -1,7 +1,7 @@
-import {Beach} from "../models/Beach";
 import uuid = require("uuid");
+import {NearestBeach} from "../DTOs/NearestBeach";
 
-export const mockBeaches: Beach[] = [
+export const mockNearestBeaches: NearestBeach[] = [
   {
     id: uuid.v4(),
     name: "Las Canteras",
