@@ -23,7 +23,6 @@ export class Tab1Page implements OnInit {
   initializeClosestBeaches(): void {
     this.restApì.getClosestBeaches().subscribe((closestBeaches: Array<BeachModel>) => {
       this.closestBeaches = closestBeaches;
-      console.log(this.closestBeaches);
     });
   }
 
