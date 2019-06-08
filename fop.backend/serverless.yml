@@ -17,6 +17,13 @@ functions:
           method: get
           path: nearestBeaches
           cors: true
-
+  login:
+    handler: src/functions/login.handler
+    description: "[${self:provider.stage}] Login endpoint that returns the current user"
+    events:
+      - http:
+          method: post
+          path: login
+          cors: true
 plugins:
   - serverless-webpack
