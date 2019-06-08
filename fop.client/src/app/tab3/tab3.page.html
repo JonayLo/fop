@@ -1,13 +1,13 @@
 <ion-content>
-    <ion-list>
-        <ion-item>
+    <ion-list *ngIf="conversations">
+        <ion-item *ngFor="let conversation of conversations">
             <ion-thumbnail slot="start">
                 <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
             </ion-thumbnail>
             <ion-label>
-                <h3>Jonay Lopez</h3>
-                <p>12:32:242</p>
-                <p>Mensaje</p>
+                <h3>{{conversation.user.firstName + ' ' + conversation.user.lastName}}</h3>
+                <p>{{conversation.lastMessage.date}}</p>
+                <p>{{conversation.lastMessage.text}}</p>
             </ion-label>
         </ion-item>
     </ion-list>
