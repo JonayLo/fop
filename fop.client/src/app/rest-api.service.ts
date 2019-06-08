@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {BeachModel} from './beachModel';
 import {map} from 'rxjs/internal/operators';
+import {ConversationModel} from './conversationModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,11 @@ export class RestApiService {
       return BeachModel.buildFromResponse(beachList);
     }));
   }
-  
+
+  getConversationsForUser(userId): Observable<Array<ConversationModel>> {
+      return this.http.get<BeachModel[]>(this.apiUrl + 'users/' + userId + '/conversations').pipe(map(conversationList => {
+          return ConversationModel.buildFromResponse(conversationList);
+      }));
+  }
+
 }
