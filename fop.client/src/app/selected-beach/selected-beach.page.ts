@@ -24,17 +24,17 @@ export class SelectedBeachPage implements OnInit {
 
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.restApiService.getCleaningBeachEvents(params.beachId).subscribe(beachCleanEvents => {
-        this.beachCleanEvents = beachCleanEvents;
+      this.loginService.getUserAlreadyLogged().subscribe(userLogged => {
+          this.userLogged = userLogged;
+          this.activatedRoute.params.subscribe(params => {
+              this.restApiService.getCleaningBeachEvents(params.beachId).subscribe(beachCleanEvents => {
+                  this.beachCleanEvents = beachCleanEvents;
+              });
+              this.restApiService.getClosestBeaches(userLogged.id).subscribe(nearestBeaches => {
+                  this.selectedBeach = nearestBeaches.find(nearestBeach => nearestBeach.getId() === params.beachId);
+              });
+          });
       });
-      this.restApiService.getClosestBeaches().subscribe(nearestBeaches => {
-        this.selectedBeach = nearestBeaches.find(nearestBeach => nearestBeach.getId() === params.beachId);
-      });
-    });
-    this.loginService.getUserAlreadyLogged().subscribe(userLogged => {
-      this.userLogged = userLogged;
-    });
   }
 
   getFinishDate(startingDate: Date, durationInHours: number): Date {
