@@ -1,9 +1,9 @@
-import {User} from "../models/User";
+import {UserOnlyName} from "./UserOnlyName";
 import {Message} from "../models/Message";
 
 export interface UserConversation {
     id: string;
     ownerUserId: string;
-    user: User;
+    user: UserOnlyName;
     lastMessage: Message;
 }
