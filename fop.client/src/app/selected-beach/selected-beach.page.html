@@ -1,0 +1,21 @@
+<ion-content>
+
+    <!-- MAP ZONE -->
+    <img src="" alt="">
+
+    <!-- LIST ZONE -->
+    <ion-list>
+        <ion-item *ngFor="let beachCleanEvent of beachCleanEvents">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        {{beachCleanEvent.startingDate | date:'hh:mm'}} - {{getFinishDate(beachCleanEvent.startingDate, beachCleanEvent.durationInHours) | date:'hh:mm'}} ({{beachCleanEvent.numberOfUsers}})
+                    </ion-col>
+                    <ion-col>
+                        <ion-button (click)="onCleanEventAssign(beachCleanEvent)">Asignar</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+</ion-content>
