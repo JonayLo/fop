@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 import {RestApiService} from '../rest-api.service';
-import {AlertController} from '@ionic/angular';
+import {AlertController, ToastController} from '@ionic/angular';
 import {LoggedUserModel} from '../loggedUserModel';
 import {LoginService} from '../login/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -17,7 +17,7 @@ export class CleanFinishPage implements OnInit {
     private loggedUser: LoggedUserModel;
     private beachCleanEventId: string;
 
-    constructor(private camera: Camera, private restApiService: RestApiService, private alertController: AlertController, private loginService: LoginService, private activatedRoute: ActivatedRoute, private router: Router) {
+    constructor(private camera: Camera, private restApiService: RestApiService, private toastController: ToastController, private alertController: AlertController, private loginService: LoginService, private activatedRoute: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit() {
@@ -30,9 +30,21 @@ export class CleanFinishPage implements OnInit {
     }
 
     onFinishClean(): void {
-        this.restApiService.addFinishClean(this.beachCleanPhoto, this.beachCleanEventId, this.loggedUser).subscribe(() => {
-            this.showSuccessClean();
+        if (this.beachCleanPhoto) {
+            this.restApiService.addFinishClean(this.beachCleanPhoto, this.beachCleanEventId, this.loggedUser).subscribe(() => {
+                this.showSuccessClean();
+            });
+        } else {
+            this.showPhotoHasNotBeenTaken();
+        }
+    }
+
+    async showPhotoHasNotBeenTaken() {
+        const toast = await this.toastController.create({
+            message: '¡Toma una foto antes de subir tu limpieza!',
+            duration: 2000
         });
+        toast.present();
     }
 
     async showSuccessClean() {

@@ -32,6 +32,10 @@ export class LoginService {
     ) as Observable<LoggedUserModel>;
   }
 
+  logout(): any {
+    this.nativeStorage.clear();
+  }
+
   getUserAlreadyLogged(): Observable<LoggedUserModel> {
     return from(this.nativeStorage.getItem(LoginService.USER_LOOGED_KEY).then(userLogged => userLogged));
   }

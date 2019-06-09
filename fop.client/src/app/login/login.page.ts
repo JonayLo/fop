@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
   onLogin(): void {
      this.loginService.login(this.email, this.password).subscribe(() => {
-         this.route.navigate(['tabs']);
+         this.route.navigate(['/tabs']);
       });
   }
 
