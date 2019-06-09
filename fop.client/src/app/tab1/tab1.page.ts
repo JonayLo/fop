@@ -12,6 +12,7 @@ import {LoginService} from '../login/login.service';
 export class Tab1Page implements OnInit {
 
   closestBeaches: Array<BeachModel>;
+  userAvatarUrl: string;
 
 
   constructor(private restApi: RestApiService, private loginService: LoginService) {
@@ -20,13 +21,14 @@ export class Tab1Page implements OnInit {
 
   ngOnInit(): void {
     this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
-        this.initializeClosestBeaches(loggedUserData.id);
+        this.initializeClosestBeaches(loggedUserData.id, loggedUserData.avatarUrl);
     });
   }
 
-  initializeClosestBeaches(userId: string): void {
+  initializeClosestBeaches(userId: string, avatarUrl: string): void {
     this.restApi.getClosestBeaches(userId).subscribe((closestBeaches: Array<BeachModel>) => {
       this.closestBeaches = closestBeaches;
+      this.userAvatarUrl = avatarUrl;
     });
   }
 

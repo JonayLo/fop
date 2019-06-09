@@ -9,12 +9,14 @@ export class ConversationModel {
     private user: UserModel;
 
     public static  buildFromResponse(conversationList) {
-        return conversationList.map(conversation => new ConversationModel(conversation.id, conversation.user, conversation.lastMessage, conversation.ownerUserId));
+        return conversationList.map(
+            conversation => new ConversationModel(conversation.id, conversation.user, conversation.lastMessage, conversation.ownerUserId)
+        );
     }
 
     constructor(id, user, lastMessage, ownerUserId) {
         this.id = id;
-        this.user = new UserModel(user.id, user.firstName, user.lastName);
+        this.user = new UserModel(user.id, user.firstName, user.lastName, user.avatarUrl);
         this.lastMessage = ConversationMessageModel.buildFromSingleResponse(lastMessage);
         this.ownerUserId = ownerUserId;
     }
