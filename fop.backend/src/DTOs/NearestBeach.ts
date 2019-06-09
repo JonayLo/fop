@@ -3,4 +3,5 @@ export interface NearestBeach {
     name: string;
     peopleCleaningToday: number;
     smallImageUrl: string;
+    largeImageUrl: string;
 }
