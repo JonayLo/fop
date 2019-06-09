@@ -49,6 +49,30 @@ functions:
           method: get
           path: users/{userId}/cleaning-events
           cors: true
+  createCleaningEvent:
+    handler: src/functions/createCleaningEvent.handler
+    description: "[${self:provider.stage}] Create a cleaning event for a user"
+    events:
+      - http:
+          method: post
+          path: users/{userId}/cleaning-events
+          cors: true
+  completeCleaningEvent:
+    handler: src/functions/completeCleaningEvent.handler
+    description: "[${self:provider.stage}] Completes a cleaning event for a user"
+    events:
+      - http:
+          method: post
+          path: users/{userId}/cleaning-events/{cleaningEventId}
+          cors: true
+  cancelCleaningEvent:
+    handler: src/functions/completeCleaningEvent.handler
+    description: "[${self:provider.stage}] Cancels a cleaning event for a user"
+    events:
+      - http:
+          method: delete
+          path: users/{userId}/cleaning-events/{cleaningEventId}
+          cors: true
 
 plugins:
   - serverless-webpack
