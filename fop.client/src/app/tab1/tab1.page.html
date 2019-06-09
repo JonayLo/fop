@@ -11,7 +11,7 @@
         <ion-list class="beaches-list">
             <ion-item *ngFor="let beach of closestBeaches" [routerLink]="['/selected-beach', beach.id]">
                 <ion-avatar slot="start">
-                    <img src="https://www.canarias7.es/binrepository/604x402/0c0/0d0/none/11314/UQMN/169937-1g_CSN169937_MG1884425.jpg">
+                    <img src={{beach.smallImageUrl}}>
                 </ion-avatar>
                 <ion-label>
                    <h3>{{beach.name}}</h3>

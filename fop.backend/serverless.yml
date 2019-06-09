@@ -8,6 +8,7 @@ provider:
   region: ${self:provider.environment.REGION}
   environment:
     REGION: us-east-1
+
 functions:
   getNearestBeaches:
     handler: src/functions/getUserNearestBeaches.handler
@@ -76,3 +77,10 @@ functions:
 
 plugins:
   - serverless-webpack
+
+resources:
+  Resources:
+    Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: fop-${opt:extenalName, 'default'}-images-bucket-${self:provider.stage}
