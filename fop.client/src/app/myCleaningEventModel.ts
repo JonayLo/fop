@@ -20,4 +20,8 @@ export class MyCleaningEventModel {
         return myEventsList.map(beachCleanEvent => new MyCleaningEventModel(beachCleanEvent.id, beachCleanEvent.userId, beachCleanEvent.beach, beachCleanEvent.startingDate, beachCleanEvent.durationInHours));
     }
 
+    getId(): string {
+        return this.id;
+    }
+
 }

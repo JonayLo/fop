@@ -5,6 +5,7 @@ import {AlertController, ToastController} from '@ionic/angular';
 import {LoggedUserModel} from '../loggedUserModel';
 import {LoginService} from '../login/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {File} from '@ionic-native/file/ngx';
 
 @Component({
     selector: 'app-clean-finish',
@@ -17,7 +18,7 @@ export class CleanFinishPage implements OnInit {
     private loggedUser: LoggedUserModel;
     private beachCleanEventId: string;
 
-    constructor(private camera: Camera, private restApiService: RestApiService, private toastController: ToastController, private alertController: AlertController, private loginService: LoginService, private activatedRoute: ActivatedRoute, private router: Router) {
+    constructor(private file: File, private camera: Camera, private restApiService: RestApiService, private toastController: ToastController, private alertController: AlertController, private loginService: LoginService, private activatedRoute: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit() {
@@ -59,16 +60,16 @@ export class CleanFinishPage implements OnInit {
     onTakePicture(): void {
 
         const options: CameraOptions = {
-            quality: 100,
+            quality: 45,
             destinationType: this.camera.DestinationType.FILE_URI,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE
         };
 
         this.camera.getPicture(options).then((imageData) => {
-            this.beachCleanPhoto = 'data:image/jpeg;base64,' + imageData;
+            const filename = imageData.substring(imageData.lastIndexOf('/') + 1);
+            const path =  imageData.substring(0, imageData.lastIndexOf('/') + 1);
+            this.file.readAsDataURL(path, filename).then(res => this.beachCleanPhoto = res);
         });
     }
-
-
 }

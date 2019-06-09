@@ -32,7 +32,7 @@ export class MyCleaningEventsPage {
         event.stopPropagation();
         this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
             this.restApiService.unjoinFromEvent(loggedUserData.id, eventId).subscribe(async () => {
-                this.myCleaningEvents = [];
+                this.myCleaningEvents = this.myCleaningEvents.filter(cleaningEvent => cleaningEvent.getId() !== eventId);
                 await this.presentAlert();
             });
         });
