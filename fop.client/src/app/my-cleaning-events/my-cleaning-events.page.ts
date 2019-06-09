@@ -28,14 +28,14 @@ export class MyCleaningEventsPage {
         });
     }
 
-    remove(event, eventId: string): void {
-        event.stopPropagation();
+    remove(eventId: string): boolean{
         this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
             this.restApiService.unjoinFromEvent(loggedUserData.id, eventId).subscribe(async () => {
                 this.myCleaningEvents = [];
                 await this.presentAlert();
             });
         });
+        return false;
     }
 
     async presentAlert() {
