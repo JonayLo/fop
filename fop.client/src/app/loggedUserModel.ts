@@ -1,4 +1,6 @@
 export interface LoggedUserModel {
     id: string;
-    name: string;
+    firstName: string;
+    lastName: string;
+    avatarUrl: string;
 }
