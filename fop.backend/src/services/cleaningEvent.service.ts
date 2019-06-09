@@ -28,7 +28,7 @@ export class CleaningEventService {
         const cleaningEvents = CleaningEventDao.getInstance().getByBeachId(beachId)
         return cleaningEvents.reduce((acc: BeachCleaningEvent[], current: CleaningEvent) => {
             const existing: BeachCleaningEvent | undefined = acc.find(
-                event => event.beachId === current.beachId && event.startingDate === current.startingDate
+                event => event.beachId === current.beachId && event.startingDate.toString() === current.startingDate.toString()
             )
 
             if (existing) {
