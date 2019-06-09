@@ -15,7 +15,7 @@
       <ion-label>
         {{event.beach.name}}
         <p>
-          {{event.startingDate | date: 'short'}}
+          {{event.startingDate | date: 'd/M/yy, h:mm a'}}
         </p>
       </ion-label>
       <ion-icon name="close" slot="end" color="danger" (click)="remove($event, event.id)"></ion-icon>

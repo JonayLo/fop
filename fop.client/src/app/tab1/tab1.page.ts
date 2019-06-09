@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {RestApiService} from '../rest-api.service';
 import {BeachModel} from '../beachModel';
-import {OnInit} from '@angular/core';
 import {LoginService} from '../login/login.service';
 import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
@@ -11,7 +10,7 @@ import {Router} from '@angular/router';
     templateUrl: 'tab1.page.html',
     styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page {
 
     closestBeaches: Array<BeachModel>;
     userAvatarUrl: string;
@@ -21,7 +20,7 @@ export class Tab1Page implements OnInit {
 
     }
 
-    ngOnInit(): void {
+    ionViewWillEnter(): void {
         this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
             this.initializeClosestBeaches(loggedUserData.id, loggedUserData.avatarUrl);
         });
