@@ -29,7 +29,6 @@ export class RestApiService {
       }));
   }
 
-
   getCleaningBeachEvents(beachId: string): Observable<Array<BeachCleaningEventModel>> {
     return this.http.get<BeachCleaningEventModel[]>(this.apiUrl + 'beachs/' + beachId + '/cleaning-events').pipe(map( beachCleanEventList => {
       return BeachCleaningEventModel.buildFromResponse(beachCleanEventList);
@@ -41,9 +40,8 @@ export class RestApiService {
     return this.http.post(this.apiUrl, {beachCleanEvent, userLogged});
   }
 
-  addFinishClean(finishClean: any): Observable<any> {
-    // TODO: Still not implemented in backend!
-    return this.http.post(this.apiUrl, {finishClean});
+  addFinishClean(photo: string, cleaningEventId: string, userLogged: LoggedUserModel): Observable<any> {
+    return this.http.post(this.apiUrl + 'users/' + userLogged.id + '/cleaning-events/' + cleaningEventId, {});
   }
 
   getCleaningEventsForUser(userId: string): Observable<Array<MyCleaningEventModel>> {

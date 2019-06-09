@@ -18,7 +18,7 @@
 
         <ion-row>
             <ion-col>
-                <ion-button (click)="onFinishClean()" expand="block" [disabled]="!finishClean.photo">
+                <ion-button (click)="onFinishClean()" expand="block" color="secondary" [disabled]="!beachCleanPhoto">
                     Terminado!
                 </ion-button>
             </ion-col>
@@ -43,7 +43,7 @@
 
         <ion-row>
             <ion-col>
-                <ion-img [src]="finishClean.photo" *ngIf="finishClean.photo"></ion-img>
+                <ion-img [src]="beachCleanPhoto" *ngIf="!!beachCleanPhoto"></ion-img>
             </ion-col>
         </ion-row>
     </ion-grid>
