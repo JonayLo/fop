@@ -13,7 +13,8 @@ export class Tab1Page implements OnInit {
 
   closestBeaches: Array<BeachModel>;
 
-  constructor(private restApì: RestApiService, private loginService: LoginService) {
+
+  constructor(private restApi: RestApiService, private loginService: LoginService) {
 
   }
 
@@ -24,7 +25,7 @@ export class Tab1Page implements OnInit {
   }
 
   initializeClosestBeaches(userId: string): void {
-    this.restApì.getClosestBeaches(userId).subscribe((closestBeaches: Array<BeachModel>) => {
+    this.restApi.getClosestBeaches(userId).subscribe((closestBeaches: Array<BeachModel>) => {
       this.closestBeaches = closestBeaches;
     });
   }

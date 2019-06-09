@@ -51,4 +51,8 @@ export class RestApiService {
       return MyCleaningEventModel.buildFromResponse(beachCleanEventList);
     }));
   }
+
+  unjoinFromEvent(userId, eventId): Observable<any> {
+    return this.http.delete(this.apiUrl + 'users/' + userId + '/cleaning-events/' + eventId);
+  }
 }

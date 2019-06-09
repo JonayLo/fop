@@ -1,5 +1,6 @@
 <div class="content">
     <div class="user-profile">
+        <ion-icon name="settings" id="settings" size="large" color="primary"></ion-icon>
         <div class="image-container">
             <img class="user-image"
                  src="https://www.atlassian.com/dam/jcr:13a574c1-390b-4bfb-956b-6b6d114bf98c/max-rehkopf.png">
@@ -7,7 +8,7 @@
     </div>
 
     <div class="close-beaches-container">
-        <p>Estas playas cerca de ti necesitan limpieza</p>
+        <p class="list-tittle">Estas playas cerca de ti necesitan limpieza</p>
         <ion-list class="beaches-list">
             <ion-item *ngFor="let beach of closestBeaches" [routerLink]="['/selected-beach', beach.id]">
                 <ion-avatar slot="start">
@@ -24,6 +25,8 @@
                 </ion-label>
             </ion-item>
         </ion-list>
-        <ion-button expand="block" [routerLink]="['/my-cleaning-events']">Mis limpiezas</ion-button>
+        <div class="my-cleaning-events">
+            <ion-button expand="block" [routerLink]="['/my-cleaning-events']">Mis eventos de limpieza</ion-button>
+        </div>
     </div>
 </div>

@@ -24,7 +24,27 @@
 }
 
 .beaches-list {
-  margin-top:30px;
-  height:55%;
+  margin-top:15px;
+  height:calc(80% - 15px);
   overflow-y:scroll;
+  margin-bottom: 0px;
+}
+
+.my-cleaning-events {
+  height:15%;
+  ion-button {
+    margin-top:10px;
+  }
+}
+
+p.list-tittle {
+  height:5%;
+  margin:0;
+}
+
+#settings {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
 }
