@@ -176,7 +176,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-getNearestBeaches",
         "Handler": "src/functions/getUserNearestBeaches.handler",
@@ -201,14 +201,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GetNearestBeachesLambdaVersionsixOzw7STgdbdScqTdtlX8LkKtxr1BQbnkoMkFJF1JM": {
+    "GetNearestBeachesLambdaVersionITV4CcxtSFAcNvTGfNpJ76AbpLWgiWSnG7oxe9kMulM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetNearestBeachesLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Get a list of nearest beaches"
       }
     },
@@ -219,7 +219,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-login",
         "Handler": "src/functions/login.handler",
@@ -244,14 +244,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "LoginLambdaVersionAVraHV2Bv6UM4jEIw5AwH6tlEYCumQLTwpDW6aUfmo": {
+    "LoginLambdaVersiona8gpTXpK9rmntFYk0Ltk7s0tSUtCAaXDgiZpEcyPz0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "LoginLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Login endpoint that returns the current user"
       }
     },
@@ -262,7 +262,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-getConversationsByUser",
         "Handler": "src/functions/getConversationsByUser.handler",
@@ -287,14 +287,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GetConversationsByUserLambdaVersionOasNxOh0M4pFCXkngY8w5KeO4MTbfI0MXFbCTyXSUI": {
+    "GetConversationsByUserLambdaVersionBj2H9vQyJa457nUPkbUGqebaKJ0Klx0foX8ZYTLFC8c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetConversationsByUserLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Get all user's conversations"
       }
     },
@@ -305,7 +305,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-getCleaningEventsByBeach",
         "Handler": "src/functions/getCleaningEventsByBeach.handler",
@@ -330,14 +330,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GetCleaningEventsByBeachLambdaVersionXWy7Y0LNPlZBocpM8cV7Sm4UG8IqxbqfGk2T3iDTx0": {
+    "GetCleaningEventsByBeachLambdaVersions7NswPj9tkPvKSgZO49XaBDIjIZVWwMtD2M4TjIWGQM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetCleaningEventsByBeachLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Get all cleaning events for one beach"
       }
     },
@@ -348,7 +348,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-getCleaningEventsByUser",
         "Handler": "src/functions/getCleaningEventsByUser.handler",
@@ -373,14 +373,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GetCleaningEventsByUserLambdaVersion4Mf7kdHrctassACOHiIzdnk6grpxJ9thOjPEM0WEUA": {
+    "GetCleaningEventsByUserLambdaVersionAR3BkJKx7goeS33rFe0QvFZwWRb9zBidu4h1KSPzo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetCleaningEventsByUserLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Get all cleaning events for one user"
       }
     },
@@ -391,7 +391,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-createCleaningEvent",
         "Handler": "src/functions/createCleaningEvent.handler",
@@ -416,14 +416,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "CreateCleaningEventLambdaVersionsFdmMFET6lWshtPWk1H0xXL3Wt7smBi2iq58F8Z4": {
+    "CreateCleaningEventLambdaVersionXo3l6xPBWqyt6hgV2jsYWn4dXvtTSaDVKuZ6bw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateCleaningEventLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Create a cleaning event for a user"
       }
     },
@@ -434,7 +434,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-completeCleaningEvent",
         "Handler": "src/functions/completeCleaningEvent.handler",
@@ -459,14 +459,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "CompleteCleaningEventLambdaVersionSQrG9oNh1tA9NZssuAn9N6HXBJxvxx2IFGrUVWbTJA": {
+    "CompleteCleaningEventLambdaVersionU3pU8IM0YY6bp6oNeA8uPPyW5w9zis9aA3CoNuvoc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CompleteCleaningEventLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Completes a cleaning event for a user"
       }
     },
@@ -477,7 +477,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/fop/dev/1560081809774-2019-06-09T12:03:29.774Z/fop.zip"
+          "S3Key": "serverless/fop/dev/1560086493551-2019-06-09T13:21:33.551Z/fop.zip"
         },
         "FunctionName": "fop-dev-cancelCleaningEvent",
         "Handler": "src/functions/completeCleaningEvent.handler",
@@ -502,14 +502,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "CancelCleaningEventLambdaVersionL0k7QajUIJlUvAefcGrsgJfGpvNfGnFCXIyskqWYtg": {
+    "CancelCleaningEventLambdaVersionV7VM6ZGWsUfjkDJacfLVExM00xhlcMU8AhbC7gzPho": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CancelCleaningEventLambdaFunction"
         },
-        "CodeSha256": "VX79vDWDCwYJd1rHyudd85uSEAPZvRa346rJhHYe5mg=",
+        "CodeSha256": "pzzbpAGY5UwWM8gsyqNGxkPVn4+cYZb07SdW7k+12v0=",
         "Description": "[dev] Cancels a cleaning event for a user"
       }
     },
@@ -1279,7 +1279,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1560081809798": {
+    "ApiGatewayDeployment1560086493576": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -1696,49 +1696,49 @@
     "GetNearestBeachesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetNearestBeachesLambdaVersionsixOzw7STgdbdScqTdtlX8LkKtxr1BQbnkoMkFJF1JM"
+        "Ref": "GetNearestBeachesLambdaVersionITV4CcxtSFAcNvTGfNpJ76AbpLWgiWSnG7oxe9kMulM"
       }
     },
     "LoginLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LoginLambdaVersionAVraHV2Bv6UM4jEIw5AwH6tlEYCumQLTwpDW6aUfmo"
+        "Ref": "LoginLambdaVersiona8gpTXpK9rmntFYk0Ltk7s0tSUtCAaXDgiZpEcyPz0"
       }
     },
     "GetConversationsByUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetConversationsByUserLambdaVersionOasNxOh0M4pFCXkngY8w5KeO4MTbfI0MXFbCTyXSUI"
+        "Ref": "GetConversationsByUserLambdaVersionBj2H9vQyJa457nUPkbUGqebaKJ0Klx0foX8ZYTLFC8c"
       }
     },
     "GetCleaningEventsByBeachLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetCleaningEventsByBeachLambdaVersionXWy7Y0LNPlZBocpM8cV7Sm4UG8IqxbqfGk2T3iDTx0"
+        "Ref": "GetCleaningEventsByBeachLambdaVersions7NswPj9tkPvKSgZO49XaBDIjIZVWwMtD2M4TjIWGQM"
       }
     },
     "GetCleaningEventsByUserLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetCleaningEventsByUserLambdaVersion4Mf7kdHrctassACOHiIzdnk6grpxJ9thOjPEM0WEUA"
+        "Ref": "GetCleaningEventsByUserLambdaVersionAR3BkJKx7goeS33rFe0QvFZwWRb9zBidu4h1KSPzo"
       }
     },
     "CreateCleaningEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateCleaningEventLambdaVersionsFdmMFET6lWshtPWk1H0xXL3Wt7smBi2iq58F8Z4"
+        "Ref": "CreateCleaningEventLambdaVersionXo3l6xPBWqyt6hgV2jsYWn4dXvtTSaDVKuZ6bw"
       }
     },
     "CompleteCleaningEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CompleteCleaningEventLambdaVersionSQrG9oNh1tA9NZssuAn9N6HXBJxvxx2IFGrUVWbTJA"
+        "Ref": "CompleteCleaningEventLambdaVersionU3pU8IM0YY6bp6oNeA8uPPyW5w9zis9aA3CoNuvoc"
       }
     },
     "CancelCleaningEventLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CancelCleaningEventLambdaVersionL0k7QajUIJlUvAefcGrsgJfGpvNfGnFCXIyskqWYtg"
+        "Ref": "CancelCleaningEventLambdaVersionV7VM6ZGWsUfjkDJacfLVExM00xhlcMU8AhbC7gzPho"
       }
     },
     "ServiceEndpoint": {
