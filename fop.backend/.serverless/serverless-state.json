@@ -193,7 +193,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-getNearestBeaches",
               "Handler": "src/functions/getUserNearestBeaches.handler",
@@ -236,7 +236,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-login",
               "Handler": "src/functions/login.handler",
@@ -279,7 +279,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-getConversationsByUser",
               "Handler": "src/functions/getConversationsByUser.handler",
@@ -322,7 +322,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-getCleaningEventsByBeach",
               "Handler": "src/functions/getCleaningEventsByBeach.handler",
@@ -365,7 +365,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-getCleaningEventsByUser",
               "Handler": "src/functions/getCleaningEventsByUser.handler",
@@ -408,7 +408,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-createCleaningEvent",
               "Handler": "src/functions/createCleaningEvent.handler",
@@ -451,7 +451,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-completeCleaningEvent",
               "Handler": "src/functions/completeCleaningEvent.handler",
@@ -494,7 +494,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z/fop.zip"
+                "S3Key": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z/fop.zip"
               },
               "FunctionName": "fop-dev-cancelCleaningEvent",
               "Handler": "src/functions/completeCleaningEvent.handler",
@@ -1296,7 +1296,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1560071312328": {
+          "ApiGatewayDeployment1560072287682": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1695,6 +1695,12 @@
                   ]
                 ]
               }
+            }
+          },
+          "Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketName": "fop-default-images-bucket-dev"
             }
           }
         },
@@ -2117,10 +2123,21 @@
         "vpc": {}
       }
     },
+    "resources": {
+      "Resources": {
+        "Bucket": {
+          "Type": "AWS::S3::Bucket",
+          "Properties": {
+            "BucketName": "fop-default-images-bucket-dev"
+          }
+        }
+      },
+      "Outputs": {}
+    },
     "layers": {}
   },
   "package": {
-    "artifactDirectoryName": "serverless/fop/dev/1560071312307-2019-06-09T09:08:32.307Z",
+    "artifactDirectoryName": "serverless/fop/dev/1560072287662-2019-06-09T09:24:47.662Z",
     "artifact": ""
   }
 }
