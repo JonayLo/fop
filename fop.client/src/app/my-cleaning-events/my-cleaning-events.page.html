@@ -18,7 +18,7 @@
           {{event.startingDate | date: 'short'}}
         </p>
       </ion-label>
-      <ion-icon name="close" slot="end" color="danger" (click)="remove(event.id)"></ion-icon>
+      <ion-icon name="close" slot="end" color="danger" (click)="remove($event, event.id)"></ion-icon>
     </ion-item>
   </ion-list>
 

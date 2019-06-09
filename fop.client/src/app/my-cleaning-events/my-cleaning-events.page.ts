@@ -28,7 +28,8 @@ export class MyCleaningEventsPage {
         });
     }
 
-    remove(eventId: string): boolean{
+    remove(event, eventId: string): boolean{
+        event.stopPropagation();
         this.loginService.getUserAlreadyLogged().subscribe(loggedUserData => {
             this.restApiService.unjoinFromEvent(loggedUserData.id, eventId).subscribe(async () => {
                 this.myCleaningEvents = [];
