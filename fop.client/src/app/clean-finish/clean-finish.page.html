@@ -26,8 +26,17 @@
 
         <ion-row>
             <ion-col>
-                <ion-button (click)="onTakePicture()" expand="block" >
-                    Toma una foto!
+                <ion-button (click)="onTakePicture()" expand="block" size="large" style="height: 6em">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col><h2>Toma una foto!</h2></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-icon name="camera" style="font-size:70px"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
                 </ion-button>
             </ion-col>
         </ion-row>
