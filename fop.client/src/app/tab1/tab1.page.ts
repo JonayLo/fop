@@ -3,7 +3,7 @@ import {RestApiService} from '../rest-api.service';
 import {BeachModel} from '../beachModel';
 import {OnInit} from '@angular/core';
 import {LoginService} from '../login/login.service';
-import {ModalController} from '@ionic/angular';
+import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class Tab1Page implements OnInit {
     userAvatarUrl: string;
 
 
-    constructor(private restApi: RestApiService, private loginService: LoginService, private route: Router) {
+    constructor(private restApi: RestApiService, private loginService: LoginService, private route: Router, private alertController: AlertController) {
 
     }
 
@@ -34,10 +34,19 @@ export class Tab1Page implements OnInit {
         });
     }
 
-    onSetting(): void {
-        // TODO: Logout directly, maybe in the future show a modal with different options...
-        this.loginService.logout();
-        this.route.navigate(['/login']);
+    async onSetting() {
+        const alert = await this.alertController.create({
+            header: '¡Atención!',
+            message: '¿Seguro que quieres salir hacer logout?',
+            buttons: ['No', {
+                text: 'Sí',
+                handler: () => {
+                    this.loginService.logout();
+                    this.route.navigate(['/login']);
+                }
+            }]
+        });
+        alert.present();
     }
 
 }
