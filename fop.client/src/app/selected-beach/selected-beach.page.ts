@@ -18,8 +18,6 @@ export class SelectedBeachPage implements OnInit {
   private selectedBeach: BeachModel;
   private userLogged: LoggedUserModel;
 
-  private selectedBeachImage = 'assets/las_canteras.png';
-
   constructor(private restApiService: RestApiService, private activatedRoute: ActivatedRoute, private loginService: LoginService) { }
 
 
