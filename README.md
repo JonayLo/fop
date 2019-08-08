@@ -5,9 +5,9 @@
 For the backend, we are going to work with `serverless framework`. If you don't have it installed, follow [this guide](https://serverless.com/framework/docs/providers/aws/guide/installation/) to install it and configure it    
 
 
-First of all we need to install the plugin **serverless-webpack**:
+First of all we need to install the dependencies:
 
-``npm install --save serverless-webpack``
+``npm install``
 
 then we just have to deploy the stack with the serverless framework
 
