@@ -5,3 +5,4 @@ fop.backend/input
 fop.backend/.webpack
 fop.backend/lib
 fop.client/.gradle
+.idea/
